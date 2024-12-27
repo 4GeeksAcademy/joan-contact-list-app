@@ -1,0 +1,21 @@
+import { Agenda } from "../pages/Agenda";
+import { Users } from "../pages/Users";
+import { Homepage } from "../pages/Homepage";
+
+export const routeConfig = [
+    {
+      name: "Root",
+      path: "/",
+      page: <Homepage />,
+    },
+    {
+      name: "Agenda",
+      path: "/Agenda",
+      page: <Agenda />,
+    },
+    {
+      name: "Users",
+      path: "/Users",
+      page: <Users />,
+    },
+  ];
