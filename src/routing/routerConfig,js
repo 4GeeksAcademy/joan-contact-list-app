@@ -2,7 +2,7 @@ import { Agenda } from "../pages/Agenda";
 import { Users } from "../pages/Users";
 import { Homepage } from "../pages/Homepage";
 
-export const routeConfig = [
+export const routerConfig = [
     {
       name: "Root",
       path: "/",
