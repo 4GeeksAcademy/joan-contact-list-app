@@ -36,7 +36,7 @@ export const Agenda = () => {
         getContactList(setAgendas);
     }, []);
 
-    return (
+     return (
         <Container className="mt-5">
             <Badge
                 className="py-3 px-3 bg-success border rounded"
@@ -45,7 +45,7 @@ export const Agenda = () => {
                 }}
             >
                 <h1 className="mb-3 bg-success text-light d-flex align-items-center justify-content-start">
-                    To Do List
+                    Agendas List
                 </h1>
                 <input
                     type="text"

@@ -3,16 +3,16 @@ import { isEmpty } from "lodash";
 import { Container, Badge, Button } from "react-bootstrap";
 
 export const Users = () => {
-    const [contacts, setContacts] = useState([]);
+    const [users, setUsers] = useState([]);
     const [inputValue, setInputValue] = useState(""); 
 
-    const getUsersList = () => {
+    const getUsersList = (slug) => {
         fetch(`https://playground.4geeks.com/contact/agendas/${slug}/contacts`, {
             method: "GET",
         })
             .then((res) => res.json())
             .then((response) => {
-                setContacts(response.contacts); 
+                setUsers(response.users); 
             });
     };
 
@@ -23,17 +23,17 @@ export const Users = () => {
             headers: {
                 "Content-Type": "application/json",
             },
-        }).then(() => getUserList());
+        }).then(() => getUsersList());
     };
 
-    const removeUser = (slug) => {
-        fetch(`https://playground.4geeks.com/contact/agendas/${slug}/contacts/${id}`, {
+    const removeUser = (slug, contact_id) => {
+        fetch(`https://playground.4geeks.com/contact/agendas/${slug}/contacts/${contact_id}`, {
             method: "DELETE",
-        }).then(() => getUserList());
+        }).then(() => getUsersList());
     };
 
     useEffect(() => {
-        getUserList(setContacts);
+        getUsersList(setUsers);
     }, []);
 
     return (
@@ -45,7 +45,7 @@ export const Users = () => {
                 }}
             >
                 <h1 className="mb-3 bg-success text-light d-flex align-items-center justify-content-start">
-                    To Do List
+                    Users List
                 </h1>
                 <input
                     type="text"
@@ -66,18 +66,18 @@ export const Users = () => {
                     }}
                 />
             </Badge>
-            {!isEmpty(contacts) && contacts.map((element) => (
+            {!isEmpty(users) && users.map((element) => (
                 <Container
                     className="d-flex align-items-center"
-                    key={element.slug} 
+                    key={element.contact_id} 
                 >
                     <Container className="text-light mt-1 py-2 bg-success border rounded">
-                        {element.slug || "Sin etiqueta"}
+                        {element.contact_id || "Sin etiqueta"}
                         <Button
                             className="text-success float-end"
                             variant="light"
                             size="sm"
-                            onClick={() => removeUser(element.slug)}
+                            onClick={() => removeUser(element.contact_id)}
                         >
                             <strong>X</strong>
                         </Button>

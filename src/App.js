@@ -1,14 +1,20 @@
 import "./App.css";
-import { routerConfig } from "./routing/routerConfig,js";
+import { Agenda } from "./pages/Agenda.jsx";
+import { Users } from "./pages/Users.jsx";
+import { Homepage } from "./pages/Homepage.jsx";
 import { Routes, Route } from "react-router";
+import { NavBar } from "./components/NavBar.jsx";
 
 const App = () => {
   return (
-    <Routes>
-      {routerConfig.map((route) => {
-        return <Route path={route.path} element={route.page} />;
-      })}
-    </Routes>
+    <>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/Agenda" element={<Agenda />} />
+        <Route path="/Users" element={<Users />} />
+      </Routes>
+    </>
   );
 };
 
