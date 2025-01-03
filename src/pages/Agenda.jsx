@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { isEmpty } from "lodash";
 import { Container, Badge, Button } from "react-bootstrap";
+import { NavLink } from "react-router";
 
 export const Agenda = () => {
     const [agendas, setAgendas] = useState([]);
@@ -72,7 +73,9 @@ export const Agenda = () => {
                     key={element.slug} 
                 >
                     <Container className="text-light mt-1 py-2 bg-success border rounded">
-                        {element.slug || "Sin etiqueta"}
+                        <NavLink to={`/User/${element.slug}`} end>
+                        <Button>{element.slug || "Sin etiqueta"}</Button>
+                        </NavLink>
                         <Button
                             className="text-success float-end"
                             variant="light"

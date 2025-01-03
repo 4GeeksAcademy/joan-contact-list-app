@@ -1,5 +1,5 @@
 import { Agenda } from "../pages/Agenda.jsx";
-import { Users } from "../pages/Users.jsx";
+import { User } from "../pages/User.jsx";
 import { Homepage } from "../pages/Homepage.jsx";
 
 const routerConfig = [
@@ -15,8 +15,8 @@ const routerConfig = [
     },
     {
       name: "Users",
-      path: "/Users",
-      element: <Users />,
+      path: "/User/:slug",
+      element: <User />,
     },
   ];
 

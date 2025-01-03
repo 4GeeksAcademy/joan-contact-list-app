@@ -15,7 +15,6 @@ export const NavBar = ()=> {
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="ms-auto">
                     <Nav.Link onClick={()=>navigate("/Agenda")}>Agenda</Nav.Link>
-                    <Nav.Link onClick={()=>navigate("/Users")}>Users</Nav.Link>
                   </Nav>
                 </Navbar.Collapse>
               </Container>
