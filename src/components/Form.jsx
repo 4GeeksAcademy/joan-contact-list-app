@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Container } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -26,42 +27,50 @@ export const ContactForm = ({ slug, getUsersList }) => {
             },
         }).then(() => getUsersList());
     };
-
     return (
-        <Form>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Name</Form.Label>
-                <Form.Control value={nameInput}
-                    onChange={(e) => setNameInput(e.target.value)}
-                    type="text"
-                />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Phone</Form.Label>
-                <Form.Control value={phoneInput}
-                    onChange={(e) => setPhoneInput(e.target.value)}
-                    type="number"
-                />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Email</Form.Label>
-                <Form.Control value={emailInput}
-                    onChange={(e) => setEmailInput(e.target.value)}
-                    type="email"
-                />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Address</Form.Label>
-                <Form.Control value={addressInput}
-                    onChange={(e) => setAddressInput(e.target.value)}
-                    type="text"
-                />
-            </Form.Group>
-            <Button variant="primary"
-                onClick={() => addNewUser()}
-            >
-                Create contact
-            </Button>
-        </Form>
+        < Container className="mt-3 text-light border rounded" style={{ paddingTop: "12px", paddingBottom: "14px", backgroundColor: "#212529", width: "80%" }} >
+            <Form>
+                <h4 className="mb-4 mt-1 ms-1 bg-dark" style={{ color: "#149eca"}}>
+                    Add new contact
+                </h4>
+                <Form.Group className="mb-3 ms-4 me-4" controlId="formBasicEmail">
+                    <Form.Label className="ms-auto">Name</Form.Label>
+                    <Form.Control value={nameInput}
+                        onChange={(e) => setNameInput(e.target.value)}
+                        type="text"
+                        placeholder="Enter the name and surname"
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3 ms-4 me-4" controlId="formBasicPassword">
+                    <Form.Label className="ms-auto">Phone</Form.Label>
+                    <Form.Control value={phoneInput}
+                        onChange={(e) => setPhoneInput(e.target.value)}
+                        type="number"
+                        placeholder="Enter the phone number"
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3 ms-4 me-4" controlId="formBasicPassword">
+                    <Form.Label className="ms-auto">Email</Form.Label>
+                    <Form.Control value={emailInput}
+                        onChange={(e) => setEmailInput(e.target.value)}
+                        type="email"
+                        placeholder="Enter the email"
+                    />
+                </Form.Group>
+                <Form.Group className="mb-5 ms-4 me-4" controlId="formBasicPassword">
+                    <Form.Label className="ms-auto">Address</Form.Label>
+                    <Form.Control value={addressInput}
+                        onChange={(e) => setAddressInput(e.target.value)}
+                        type="text"
+                        placeholder="Enter the address"
+                    />
+                </Form.Group>
+                <Button className="mb-3 ms-4" style={{ backgroundColor: "#212529", color: "#149eca" }}
+                    onClick={() => addNewUser()}
+                >
+                    Create contact
+                </Button>
+            </Form>
+        </Container>
     );
 };

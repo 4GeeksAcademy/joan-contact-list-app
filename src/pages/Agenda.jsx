@@ -5,7 +5,7 @@ import { NavLink } from "react-router";
 
 export const Agenda = () => {
     const [agendas, setAgendas] = useState([]);
-    const [inputValue, setInputValue] = useState(""); 
+    const [inputValue, setInputValue] = useState("");
 
     const getContactList = () => {
         fetch("https://playground.4geeks.com/contact/agendas", {
@@ -13,14 +13,14 @@ export const Agenda = () => {
         })
             .then((res) => res.json())
             .then((response) => {
-                setAgendas(response.agendas); 
+                setAgendas(response.agendas);
             });
     };
 
     const addNewContact = (slug) => {
         fetch(`https://playground.4geeks.com/contact/agendas/${slug}`, {
             method: "POST",
-            body: JSON.stringify({slug}), 
+            body: JSON.stringify({ slug }),
             headers: {
                 "Content-Type": "application/json",
             },
@@ -37,20 +37,20 @@ export const Agenda = () => {
         getContactList(setAgendas);
     }, []);
 
-     return (
-        <Container className="mt-5">
+    return (
+        <Container className="mt-3">
             <Badge
-                className="py-3 px-3 bg-success border rounded"
-                style={{
-                    width: "100%",
-                }}
+                className="py-3 px-3 bg-dark border rounded"
+                style={{ width: "100%" }}
             >
-                <h1 className="mb-3 bg-success text-light d-flex align-items-center justify-content-start">
-                    Agendas List
+                <h1
+                    className="mb-3 text-light bg-dark d-flex align-items-center justify-content-start"
+                >
+                    Agenda's list
                 </h1>
                 <input
                     type="text"
-                    placeholder="Write a new task"
+                    placeholder="Create a new agenda"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={(e) => {
@@ -70,16 +70,20 @@ export const Agenda = () => {
             {!isEmpty(agendas) && agendas.map((element) => (
                 <Container
                     className="d-flex align-items-center"
-                    key={element.slug} 
+                    key={element.slug}
                 >
-                    <Container className="text-light mt-1 py-2 bg-success border rounded">
+                    <Container 
+                    className="mt-1 py-2 border rounded"
+                    style={{ backgroundColor: "#212529", color: "#149eca" }}
+                    >
                         <NavLink to={`/User/${element.slug}`} end>
-                        <Button>{element.slug || "Sin etiqueta"}</Button>
+                            <Button style={{ backgroundColor: "#212529", color: "#149eca"}} >{element.slug || "Sin etiqueta"}</Button>
                         </NavLink>
                         <Button
-                            className="text-success float-end"
-                            variant="light"
+                            className="float-end"
+                            variant="danger"
                             size="sm"
+                            style={{marginTop: "4px", color: "#212529"}}
                             onClick={() => removeContacts(element.slug)}
                         >
                             <strong>X</strong>

@@ -31,34 +31,35 @@ export const User = () => {
     }, []);
 
     return (
-        <Container className="mt-5">
+        <Container className="mt-3">
             <Badge
 
-                className="py-3 px-3 bg-success border rounded"
+                className="py-3 px-3 bg-dark border rounded"
                 style={{
                     width: "100%",
                 }}
             >
-                <h1 className="mb-3 bg-success text-light d-flex align-items-center justify-content-start">
-                    User de {slug}
-                </h1>
-                <ContactForm getUsersList={getUsersList} slug={slug}/>
+                <h1 className="mb-3 bg-dark text-light d-flex align-items-center justify-content-start">
+                    Contacts of {slug}
+                </h1>                
             </Badge>
+            <ContactForm getUsersList={getUsersList} slug={slug}/>
             {!isEmpty(users) && users.map((element) => (
                 <Container
                     className="d-flex align-items-center"
                     key={element.id}
                 >
-                    <Container className="text-light mt-1 py-2 bg-success border rounded">
+                    <Container className="mt-3 d-flex justify-content-between align-items-center bg-dark border rounded"
+                    style={{paddingTop: "8px", paddingBottom: "11px", color: "#149eca", width: "60%"}}>
                         {element.name || "Without name"}<br/>
                         {element.phone || "Without phone"}<br/>
                         {element.email || "Without email"}<br/>
                         {element.address || "Without address"}<br/>
                         <Button
-                            className="text-success float-end"
-                            variant="light"
-                            size="sm"
+                            className="align-self-start"
+                            variant="danger"
                             onClick={() => removeUser(element.id)}
+                            style={{ marginRight: "20px", marginTop: "30px", color: "#212529"}}
                         >
                             <strong>X</strong>
                         </Button>

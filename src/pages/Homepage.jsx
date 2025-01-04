@@ -1,7 +1,7 @@
 
 export const Homepage = () => {
     return (
-        <h1>Contact List Project</h1>
+        <h1 style={{ paddingLeft: "8px"}}>Contact List Project</h1>
 
     );
 }
