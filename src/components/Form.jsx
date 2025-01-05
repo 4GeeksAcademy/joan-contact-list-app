@@ -30,9 +30,9 @@ export const ContactForm = ({ slug, getUsersList }) => {
     return (
         < Container className="mt-3 text-light border rounded" style={{ paddingTop: "12px", paddingBottom: "14px", backgroundColor: "#212529", width: "80%" }} >
             <Form>
-                <h4 className="mb-4 mt-1 ms-1 bg-dark" style={{ color: "#149eca"}}>
+                <h3 className="mb-4 mt-3 ms-4 bg-dark" style={{ color: "#149eca"}}>
                     Add new contact
-                </h4>
+                </h3>
                 <Form.Group className="mb-3 ms-4 me-4" controlId="formBasicEmail">
                     <Form.Label className="ms-auto">Name</Form.Label>
                     <Form.Control value={nameInput}

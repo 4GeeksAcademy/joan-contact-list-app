@@ -7,8 +7,8 @@ export const Agenda = () => {
     const [agendas, setAgendas] = useState([]);
     const [inputValue, setInputValue] = useState("");
 
-    const getContactList = () => {
-        fetch("https://playground.4geeks.com/contact/agendas", {
+    const getAgendaList = () => {
+        fetch(`https://playground.4geeks.com/contact/agendas`, {
             method: "GET",
         })
             .then((res) => res.json())
@@ -24,17 +24,17 @@ export const Agenda = () => {
             headers: {
                 "Content-Type": "application/json",
             },
-        }).then(() => getContactList());
+        }).then(() => getAgendaList());
     };
 
     const removeContacts = (slug) => {
         fetch(`https://playground.4geeks.com/contact/agendas/${slug}`, {
             method: "DELETE",
-        }).then(() => getContactList());
+        }).then(() => getAgendaList());
     };
 
     useEffect(() => {
-        getContactList(setAgendas);
+        getAgendaList(setAgendas);
     }, []);
 
     return (
@@ -44,7 +44,7 @@ export const Agenda = () => {
                 style={{ width: "100%" }}
             >
                 <h1
-                    className="mb-3 text-light bg-dark d-flex align-items-center justify-content-start"
+                    className="mb-3 ms-1 text-light bg-dark d-flex align-items-center justify-content-start"
                 >
                     Agenda's list
                 </h1>
@@ -61,6 +61,8 @@ export const Agenda = () => {
                     }}
                     style={{
                         padding: "10px",
+                        marginTop: "9px",
+                        marginBottom: "5px",
                         fontSize: "16px",
                         borderRadius: "5px",
                         width: "100%",
@@ -72,18 +74,19 @@ export const Agenda = () => {
                     className="d-flex align-items-center"
                     key={element.slug}
                 >
-                    <Container 
-                    className="mt-1 py-2 border rounded"
-                    style={{ backgroundColor: "#212529", color: "#149eca" }}
+                    <Container
+                        className="mt-1 py-2 border rounded"
+                        style={{backgroundColor: "#212529", color: "#149eca" }}
                     >
+                        <strong className="ms-1">{element.slug}</strong>
                         <NavLink to={`/User/${element.slug}`} end>
-                            <Button style={{ backgroundColor: "#212529", color: "#149eca"}} >{element.slug || "Sin etiqueta"}</Button>
+                            <Button className="justify-content-center ms-3" style={{ backgroundColor: "#212529", color: "#149eca" }} >Contacts</Button>
                         </NavLink>
                         <Button
                             className="float-end"
                             variant="danger"
                             size="sm"
-                            style={{marginTop: "4px", color: "#212529"}}
+                            style={{ marginTop: "4px", color: "#212529" }}
                             onClick={() => removeContacts(element.slug)}
                         >
                             <strong>X</strong>

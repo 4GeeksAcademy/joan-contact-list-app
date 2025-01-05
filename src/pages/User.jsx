@@ -39,7 +39,7 @@ export const User = () => {
                     width: "100%",
                 }}
             >
-                <h1 className="mb-3 bg-dark text-light d-flex align-items-center justify-content-start">
+                <h1 className="mb-3 mt-2 ms-3 bg-dark text-light d-flex align-items-center justify-content-start">
                     Contacts of {slug}
                 </h1>                
             </Badge>
@@ -50,7 +50,7 @@ export const User = () => {
                     key={element.id}
                 >
                     <Container className="mt-3 d-flex justify-content-between align-items-center bg-dark border rounded"
-                    style={{paddingTop: "8px", paddingBottom: "11px", color: "#149eca", width: "60%"}}>
+                    style={{paddingTop: "9px", paddingBottom: "11px", color: "#149eca", width: "60%"}}>
                         {element.name || "Without name"}<br/>
                         {element.phone || "Without phone"}<br/>
                         {element.email || "Without email"}<br/>
@@ -59,7 +59,7 @@ export const User = () => {
                             className="align-self-start"
                             variant="danger"
                             onClick={() => removeUser(element.id)}
-                            style={{ marginRight: "20px", marginTop: "30px", color: "#212529"}}
+                            style={{ marginRight: "21px", marginTop: "31px", color: "#212529"}}
                         >
                             <strong>X</strong>
                         </Button>
